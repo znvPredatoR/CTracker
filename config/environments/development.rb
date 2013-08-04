@@ -13,13 +13,7 @@ CurrencyTracker::Application.configure do
   config.consider_all_requests_local = true
   config.action_controller.perform_caching = false
 
-  config.action_mailer.raise_delivery_errors = true
-
-  # Change mail delvery to either :smtp, :sendmail, :file, :test
-  config.action_mailer.delivery_method = :sendmail
-
-  # Specify what domain to use for mailer URLs
-  config.action_mailer.default_url_options = {host: "localhost:3000"}
+  config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
