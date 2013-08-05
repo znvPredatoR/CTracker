@@ -5,9 +5,9 @@
     <%= render 'pie_chart' %>
   </div>
 
-  <!--<input type="text" placeholder="Enter name to filter countries..."/>-->
-
-  <%= form_tag visit_countries_path, remote: true do |f| %>
+  <%= form_tag visit_countries_path, remote: true do %>
+    <input class="search_query" type="text" placeholder="Enter name to filter countries..." name="q"
+           data-url="<%= search_countries_path %>"/>
     <div class="table_actions">
       <input type="submit" class="disabled" value="Visit"/>
     </div>

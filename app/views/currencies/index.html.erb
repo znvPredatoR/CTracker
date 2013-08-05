@@ -5,7 +5,9 @@
     <%= render 'pie_chart' %>
   </div>
 
-  <%= form_tag collect_currencies_path, remote: true do |f| %>
+  <%= form_tag collect_currencies_path, remote: true do %>
+    <input class="search_query" type="text" placeholder="Enter name to filter countries..." name="q"
+           data-url="<%= search_currencies_path %>"/>
     <div class="table_actions">
       <input type="submit" class="disabled" value="Collect"/>
     </div>

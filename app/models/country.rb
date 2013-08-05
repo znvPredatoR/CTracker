@@ -12,6 +12,8 @@ class Country < ActiveRecord::Base
   belongs_to :currency
   has_many :user_visits
 
+  scope :with_name, -> (q) { includes(:user_visits).where("name like ?", "%#{q}%") }
+
   def visited?
     user_visits.present?
   end

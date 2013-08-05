@@ -5,10 +5,12 @@ CurrencyTracker::Application.routes.draw do
   
   resources :countries, :only => [:index, :show] do
     post 'visit', on: :collection
+    post 'search', on: :collection
   end
 
   resources :currencies, :only => [:index, :show] do
     post 'collect', on: :collection
+    post 'search', on: :collection
   end
 
   # The priority is based upon order of creation:

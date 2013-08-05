@@ -7,6 +7,8 @@ class Currency < ActiveRecord::Base
 
   has_many :countries
 
+  scope :with_name, -> (q) { includes(:countries).where("name like ?", "%#{q}%") }
+
   def self.collected
     includes(:countries).all.select {|currency| currency.collected? }
   end

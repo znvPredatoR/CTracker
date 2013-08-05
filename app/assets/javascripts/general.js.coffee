@@ -1,6 +1,14 @@
 $ ->
   class CurrencyTracker
 
+    constructor: ->
+      $(".search_query").on "keyup", ->
+        $.ajax
+          url: $(@).data("url")
+          type: "POST"
+          data:
+            "q": $(@).val()
+
     initTable: ->
       $(".currency_tracker_table .selecter").on "click", ->
         currencyTracker.toggleActionsAvailability()
