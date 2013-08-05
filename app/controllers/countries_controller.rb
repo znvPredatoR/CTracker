@@ -1,60 +1,20 @@
 class CountriesController < ApplicationController
-  # GET /countries
-  # GET /countries.xml
   def index
-    @countries = Country.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @countries }
-    end
+    @countries = Country.includes(:user_visits).all
   end
 
-  # GET /countries/1
-  # GET /countries/1.xml
   def show
     @country = Country.find(params[:id])
+  end
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @country }
+  def visit
+    params[:selected_country_ids] && params[:selected_country_ids].each do |country_id|
+      Country.find(country_id).visit(current_user.id)
+    end
+    @countries = Country.includes(:user_visits).all
+    respond_to do |f|
+      f.js
     end
   end
 
-  # GET /countries/1/edit
-  def edit
-    @country = Country.find(params[:id])
-  end
-
-  # POST /countries
-  # POST /countries.xml
-  def create
-    @country = Country.new(params[:country])
-
-    respond_to do |format|
-      if @country.save
-        format.html { redirect_to(@country, :notice => 'Country was successfully created.') }
-        format.xml  { render :xml => @country, :status => :created, :location => @country }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @country.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /countries/1
-  # PUT /countries/1.xml
-  def update
-    @country = Country.find(params[:id])
-
-    respond_to do |format|
-      if @country.update_attributes(params[:country])
-        format.html { redirect_to(@country, :notice => 'Country was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @country.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
 end

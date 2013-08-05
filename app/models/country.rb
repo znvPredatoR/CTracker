@@ -1,5 +1,5 @@
 class Country < ActiveRecord::Base
-  attr_accessible :name, :code, :currency_id, :visited
+  attr_accessible :name, :code, :currency_id
 
   validates_presence_of :name
   validates_presence_of :code
@@ -10,7 +10,14 @@ class Country < ActiveRecord::Base
   # if I would do this it'll be a has_and_belongs_to_many association
   # on the other hand situation when multiple countries has one currency is common (euro), so I decided to stick with it
   belongs_to :currency
+  has_many :user_visits
 
-  scope :visited, :conditions => { :visited => true }
-  scope :not_visited, :conditions => { :visited => false }
+  def visited?
+    user_visits.present?
+  end
+
+  def visit(user_id)
+    UserVisit.create({user_id: user_id, country_id: id})
+  end
+
 end

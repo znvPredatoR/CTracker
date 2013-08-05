@@ -1,32 +1,28 @@
-html { 
+html {
   margin: 0px;
   padding: 0px;
-
   height: 100%;
-
   background: #CCC;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#CCC), color-stop(0.75, white), to(white));
   background-image: -moz-linear-gradient(top, #CCC, white 75%);
   background-attachment: fixed;
 }
 
-body { 
+body {
   position: relative;
   margin: 0px auto;
   padding: 5px 20px;
-
   width: 800px;
   min-height: 100%;
-
   font-family: Helvetica Neue, Helvetica, Arial, Sans Serif;
-
-  background-color: #fff; color: #333;
+  background-color: #fff;
+  color: #333;
   -moz-box-shadow: 0px 0px 5px #333;
   -webkit-box-shadow: 0px 0px 5px #333;
 }
 
 body, p, ol, ul, td {
-  font-size:   0.9em;
+  font-size: 0.9em;
   line-height: 150%;
 }
 
@@ -36,9 +32,18 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a {
+  color: #000;
+}
+
+a:visited {
+  color: #666;
+}
+
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -49,26 +54,39 @@ div.field, div.actions {
 table {
   margin: 0px;
   padding: 0px;
-
   width: 100%;
   clear: both;
-
-  border-collapse:collapse;
+  border-collapse: collapse;
 }
 
 table th {
   text-align: left;
-  background: #333;
-  color: #FFF;
+  background: #e3e3e3;
 }
 
-table th,
-table td {
+table th, table td {
   padding: 5px;
   border: 1px solid #999;
 }
 
+table tr:hover {
+  background: lightgoldenrodyellow;
+  cursor: pointer;
+}
+
 /* Flash Notices / Errors */
+
+.alert-error, .alert-alert {
+  color: red;
+}
+
+.alert-notice {
+  color: darkgoldenrod;
+}
+
+.alert-success {
+  color: green;
+}
 
 #notice {
   color: green;
@@ -108,6 +126,10 @@ table td {
 /* Header / Nav */
 body header {
   font-size: 1.2em;
+}
+
+header h1 {
+  margin-top: 10px;
 }
 
 nav ul {
@@ -152,14 +174,10 @@ body header nav ul li a:active {
   background: none;
 }
 
-section h1 {
-  float: left;
-}
-
 /* Charts */
-#collected_currencies_chart,
-#visited_countries_chart {
-  float: right;
+.simple_pie_chart {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 /* Footer */
@@ -169,4 +187,41 @@ footer {
 
   font-size: 0.8em;
   text-align: center;
+}
+
+.pull-left {
+  float: left;
+}
+
+.table_actions {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+input[type='text'] {
+  padding: 5px;
+  width: 250px;
+  border: 1px solid gray;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+input[type='button'], input[type='submit'] {
+  padding: 5px 15px;
+  border: 1px solid gray;
+  font-size: 14px;
+  background: lightgrey;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &.disabled {
+    background: whitesmoke !important;
+    cursor: default;
+    color: #c3c3c3;
+    border: 1px solid #c3c3c3;
+  }
+
+  &:hover {
+    background: lightgoldenrodyellow;
+  }
 }

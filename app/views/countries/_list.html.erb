@@ -1,0 +1,24 @@
+<table class="currency_tracker_table">
+  <thead>
+  <tr>
+    <th>
+      <input class="all_selecter" type="checkbox"/>
+    </th>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @countries.each do |country| %>
+    <tr>
+      <td>
+        <input class="selecter" type="checkbox" name="selected_country_ids[]" value="<%= country.id %>"/>
+      </td>
+      <td><%= link_to country.name, country_path(country) %></td>
+      <td><%= country.code %></td>
+      <td><%= country.visited? ? 'Visited' : 'Not Visited' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

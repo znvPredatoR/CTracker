@@ -1,0 +1,24 @@
+<table class="currency_tracker_table">
+  <thead>
+  <tr>
+    <th>
+      <input class="all_selecter" type="checkbox"/>
+    </th>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @currencies.each do |currency| %>
+    <tr>
+      <td>
+        <input class="selecter" type="checkbox" name="selected_currency_ids[]" value="<%= currency.id %>"/>
+      </td>
+      <td><%= link_to currency.name, currency %></td>
+      <td><%= currency.code %></td>
+      <td><%= currency.collected? ? 'Collected' : 'Not Collected' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

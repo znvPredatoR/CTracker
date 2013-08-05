@@ -18,4 +18,10 @@ class Currency < ActiveRecord::Base
   def collected?
     countries.any? && countries.select { |c| c.visited? }.any?
   end
+
+  def collect(user_id)
+    return unless countries.present?
+    country = countries.first
+    UserVisit.create({user_id: user_id, country_id: country.id})
+  end
 end

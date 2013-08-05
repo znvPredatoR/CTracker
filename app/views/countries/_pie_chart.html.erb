@@ -1,0 +1,12 @@
+<div class="simple_pie_chart" width='300px' height='100px'>
+  <table>
+    <tr>
+      <th>Visited</th>
+      <td><%= current_user.visited_countries.count %></td>
+    </tr>
+    <tr>
+      <th>Not Visited</th>
+      <td><%= current_user.not_visited_countries.count %></td>
+    </tr>
+  </table>
+</div>

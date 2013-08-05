@@ -1,0 +1,4 @@
+$("#currencies_list").html('<%= j render 'currencies/list' %>');
+$("#collected_currencies_chart").html('<%= j render 'currencies/pie_chart' %>');
+SimplePieChart.initialize($(".simple_pie_chart")[0]);
+currencyTracker.initTable();

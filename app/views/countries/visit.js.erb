@@ -1,0 +1,4 @@
+$("#countries_list").html('<%= j render 'countries/list' %>');
+$("#visited_countries_chart").html('<%= j render 'countries/pie_chart' %>');
+SimplePieChart.initialize($(".simple_pie_chart")[0]);
+currencyTracker.initTable();

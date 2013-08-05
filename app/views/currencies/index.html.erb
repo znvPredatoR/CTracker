@@ -1,33 +1,16 @@
 <section>
-  <div id="collected_currencies_chart" class="simple_pie_chart" width='300px' height='100px'>
-    <table>
-      <tr>
-        <th>Collected</th>
-        <td><%= Currency.collected.count %></td>
-      </tr><tr>
-        <th>Not Collected</th>
-        <td><%= Currency.not_collected.count %></td>
-      </tr>
-    </table>
-  </div>
-
   <h1>Currencies</h1>
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Status</th>
-      <th></th>
-    </tr>
+  <div id="collected_currencies_chart">
+    <%= render 'pie_chart' %>
+  </div>
 
-  <% @currencies.each do |currency| %>
-    <tr>
-      <td><%= currency.name %></td>
-      <td><%= currency.code %></td>
-      <td><%= currency.collected? ? 'Collected' : 'Not Collected' %></td>
-      <td><%= link_to 'Show', currency %></td>
-    </tr>
+  <%= form_tag collect_currencies_path, remote: true do |f| %>
+    <div class="table_actions">
+      <input type="submit" class="disabled" value="Collect"/>
+    </div>
+    <div id="currencies_list">
+      <%= render 'list' %>
+    </div>
   <% end %>
-  </table>
 </section>
