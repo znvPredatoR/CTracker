@@ -16,8 +16,15 @@
 </p>
 
 <p>
-  <b>Country:</b>
-  <%= @currency.country.nil? ? 'None' : link_to(@currency.country.name, @currency.country) %>
+  <b>Met in following countries:</b>
+  <% if @currency.countries.any? %>
+    <br>
+    <% @currency.countries.each do |c| %>
+      <%= link_to(c.name, c) %><br>
+    <% end %>
+  <% else %>
+    None
+  <% end %>
 </p>
 
 <%= link_to 'Back', currencies_path %>

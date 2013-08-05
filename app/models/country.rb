@@ -9,9 +9,7 @@ class Country < ActiveRecord::Base
   # for the purposes of this demo task I decided not to implement such case, it is kind of rare
   # if I would do this it'll be a has_and_belongs_to_many association
   # on the other hand situation when multiple countries has one currency is common (euro), so I decided to stick with it
-  has_many :currencies
-
-  accepts_nested_attributes_for :currencies, :allow_destroy => true
+  belongs_to :currency
 
   scope :visited, :conditions => { :visited => true }
   scope :not_visited, :conditions => { :visited => false }

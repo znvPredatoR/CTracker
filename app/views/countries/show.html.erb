@@ -17,11 +17,7 @@
 
 <p>
   <b>Currencies:</b>
-  <ul>
-    <% @country.currencies.each do |currency| %>
-      <li><%= link_to currency.name, currency %></li>
-    <% end %>
-  </ul>
+  <%= link_to @country.currency.name, @country.currency if @country.currency %>
 </p>
 
 <%= link_to 'Edit', edit_country_path(@country) %> |
