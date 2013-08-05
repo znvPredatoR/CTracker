@@ -1,22 +1,21 @@
 class Currency < ActiveRecord::Base
-  set_primary_key :code
-  attr_accessible :name, :code, :country_id
+  attr_accessible :name, :code
 
   validates_presence_of :name
   validates_presence_of :code
   validates_uniqueness_of :code, :allow_blank => true
 
-  belongs_to :country
+  has_many :countries
 
   def self.collected
-    all.select {|currency| currency.collected? }
+    includes(:countries).all.select {|currency| currency.collected? }
   end
 
   def self.not_collected
-    all.reject {|currency| currency.collected? }
+    includes(:countries).all.reject {|currency| currency.collected? }
   end
 
   def collected?
-    country.nil? ? false : country.visited?
+    countries.any? && countries.select { |c| c.visited? }.any?
   end
 end

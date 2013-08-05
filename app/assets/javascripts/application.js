@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require view_controller
 //= require simple_pie_chart
 //= require_tree .
