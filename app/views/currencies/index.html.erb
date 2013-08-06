@@ -1,6 +1,9 @@
 <section>
   <h1>Currencies</h1>
 
+  <canvas id="lineChart" width="400" height="400"></canvas>
+  <input type="hidden" id="lineChartData" data-line-chart="<%= currencies_line_chart_data %>">
+
   <div id="collected_currencies_chart">
     <%= render 'pie_chart' %>
   </div>

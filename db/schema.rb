@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130805142439) do
   create_table "user_visits", :force => true do |t|
     t.integer  "user_id"
     t.integer  "country_id"
+    t.boolean "was_currency_collected", :default => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

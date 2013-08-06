@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require view_controller
 //= require simple_pie_chart
+//= require Chart
 //= require_tree .

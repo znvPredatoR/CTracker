@@ -1,6 +1,9 @@
 <section>
   <h1>Countries</h1>
 
+  <canvas id="lineChart" width="400" height="400"></canvas>
+  <input type="hidden" id="lineChartData" data-line-chart="<%= countries_line_chart_data %>">
+
   <div id="visited_countries_chart">
     <%= render 'pie_chart' %>
   </div>

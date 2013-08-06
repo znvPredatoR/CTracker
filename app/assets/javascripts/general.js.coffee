@@ -9,6 +9,10 @@ $ ->
           data:
             "q": $(@).val()
 
+      ctx = $("#lineChart")[0].getContext("2d")
+      data = $("#lineChartData").data("line-chart")
+      @lineChart = new Chart(ctx).Line data
+
     initTable: ->
       $(".currency_tracker_table .selecter").on "click", ->
         currencyTracker.toggleActionsAvailability()
@@ -30,11 +34,11 @@ $ ->
           checkboxes.prop "checked", false
         currencyTracker.toggleActionsAvailability()
 
-     toggleActionsAvailability: ->
-       if $(".currency_tracker_table .selecter:checked").length > 0
-         $(".table_actions").children().removeClass("disabled")
-       else
-         $(".table_actions").children().addClass("disabled")
+    toggleActionsAvailability: ->
+      if $(".currency_tracker_table .selecter:checked").length > 0
+        $(".table_actions").children().removeClass("disabled")
+      else
+        $(".table_actions").children().addClass("disabled")
 
   window.currencyTracker = new CurrencyTracker
   currencyTracker.initTable()
