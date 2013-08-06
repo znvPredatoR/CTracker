@@ -6,13 +6,13 @@ CurrencyTracker allows you to track your personal collection of world currencies
 Changes from Dmitry Solomadin
 ===============
 First of all I would like to say a few words about the changes that were made to the program:
-1. I believe that the situation when currency has multiple countries is more common than the vise versa situation, therefore
+* I believe that the situation when currency has multiple countries is more common than the vise versa situation, therefore
 I changed currency to have multiple countries. Now in the real world task I would use has_and_belongs_to_many for both countries
 and currencies tables.
-2. I removed the data_uploader class because I think that currency and country data should be stored locally, it is more reliable
+* I removed the data_uploader class because I think that currency and country data should be stored locally, it is more reliable
 than fetching the data from the network. Also that data is hardly to change :)
-3. I removed ability to edit/create new currencies/countries. This data should not be changed by standard user in any case.
-4. I strongly believe that this task is impossible to implement (assuming that understanding and task decomposition is counted) in 6 hours
+* I removed ability to edit/create new currencies/countries. This data should not be changed by standard user in any case.
+* I strongly believe that this task is impossible to implement (assuming that understanding and task decomposition is counted) in 6 hours
 I spent like 10 hours and leave out cucumber tests out of scope.
 
 Please, contact me with any question or about any design decision which you would rather do differently.
