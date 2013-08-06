@@ -3,9 +3,7 @@
 one:
   name: NameOne
   code: CodeOne
-  country: one
 
 two:
   name: NameTwo
   code: CodeTwo
-  country: two

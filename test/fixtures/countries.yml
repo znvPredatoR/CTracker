@@ -3,7 +3,9 @@
 one:
   name: NameOne
   code: CodeOne
+  currency: 1
 
 two:
   name: NameTwo
   code: CodeTwo
+  currency: 2
