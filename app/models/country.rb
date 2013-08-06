@@ -14,8 +14,8 @@ class Country < ActiveRecord::Base
 
   scope :with_name, -> (q) { includes(:user_visits).where("name like ?", "%#{q}%") }
 
-  def visited?
-    user_visits.present?
+  def visited?(user_id)
+    user_visits.where("user_id = ?", user_id).present?
   end
 
   def visit(user_id)

@@ -17,7 +17,7 @@
       </td>
       <td><%= link_to currency.name, currency %></td>
       <td><%= currency.code %></td>
-      <td><%= currency.collected? ? 'Collected' : 'Not Collected' %></td>
+      <td><%= currency.collected?(current_user.id) ? 'Collected' : 'Not Collected' %></td>
     </tr>
   <% end %>
   </tbody>

@@ -9,16 +9,16 @@ class Currency < ActiveRecord::Base
 
   scope :with_name, -> (q) { includes(:countries).where("name like ?", "%#{q}%") }
 
-  def self.collected
-    includes(:countries).all.select {|currency| currency.collected? }
+  def self.collected(user_id)
+    includes(:countries).all.select {|currency| currency.collected?(user_id) }
   end
 
-  def self.not_collected
-    includes(:countries).all.reject {|currency| currency.collected? }
+  def self.not_collected(user_id)
+    includes(:countries).all.reject {|currency| currency.collected?(user_id) }
   end
 
-  def collected?
-    countries.any? && countries.select { |c| c.visited? }.any?
+  def collected?(user_id)
+    countries.any? && countries.select { |c| c.visited?(user_id) }.any?
   end
 
   def collect(user_id)

@@ -11,7 +11,7 @@ class UserVisit < ActiveRecord::Base
   private
 
   def update_was_currency_collected
-    self.was_currency_collected = true unless country.currency.collected?
+    self.was_currency_collected = true unless country.currency.collected?(user_id)
   end
 
 end
